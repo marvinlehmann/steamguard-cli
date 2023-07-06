@@ -309,7 +309,7 @@ fn get_mafiles_dir() -> String {
 		Path::new(&dirs::home_dir().unwrap()).join("maFiles"),
 	];
 	if let Ok(current_exe) = std::env::current_exe() {
-		paths.push(current_exe.parent().unwrap().join("maFiles"));
+		paths.insert(0, current_exe.parent().unwrap().join("maFiles"));
 	}
 
 	for path in &paths {
